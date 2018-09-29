@@ -99,7 +99,7 @@ public class TestSearchUtils {
             Job.getJobManager().join(DocumentLifeCycleHandler.DOCUMENT_LIFE_CYCLE_JOBS, new NullProgressMonitor());
             final IType[] childrenTypes = unit.getAllTypes();
             for (final IType type : childrenTypes) {
-                if (!JUnitUtility.isAccessibleClass(type)) {
+                if (!isAccessibleAndNonAbstractType(type)) {
                     continue;
                 }
                 final List<IMethod> testMethods = getTestMethods(type);
