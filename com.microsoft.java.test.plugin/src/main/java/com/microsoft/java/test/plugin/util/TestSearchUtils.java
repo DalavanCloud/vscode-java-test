@@ -95,6 +95,7 @@ public class TestSearchUtils {
             return resultList;
         }
         try {
+            // wait for the LS finishing to update the compilation unit
             Job.getJobManager().join(DocumentLifeCycleHandler.DOCUMENT_LIFE_CYCLE_JOBS, new NullProgressMonitor());
             final IType[] childrenTypes = unit.getAllTypes();
             for (final IType type : childrenTypes) {
